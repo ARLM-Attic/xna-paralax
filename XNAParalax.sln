@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+# Visual C# Express 2005
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax", "XNAParalax\XNAParalax.csproj", "{4608A22C-FBEC-49B5-BEDB-6464606271CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.XNAScroller", "XNAScroller\XNAParalax.XNAScroller.csproj", "{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.XNATypeConverters", "XNATypeConverters\XNAParalax.XNATypeConverters.csproj", "{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,14 @@ Global
 		{4608A22C-FBEC-49B5-BEDB-6464606271CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4608A22C-FBEC-49B5-BEDB-6464606271CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4608A22C-FBEC-49B5-BEDB-6464606271CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
