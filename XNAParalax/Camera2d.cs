@@ -21,6 +21,9 @@ namespace XNAParalax
     {
         private Vector2 mWorldPosistion;
 
+        /// <summary>
+        /// The world viewpoint of the camera.
+        /// </summary>
         [TypeConverter(typeof(Vector2Converter))]
         public Vector2 WorldPos
         {
@@ -30,6 +33,9 @@ namespace XNAParalax
 
         private Rectangle mView;
 
+        /// <summary>
+        /// The Viewport that the windows looks upon.
+        /// </summary>
         public Rectangle ViewPort
         {
             get { 
@@ -47,6 +53,9 @@ namespace XNAParalax
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initialize some of the properties on the camera.
+        /// </summary>
         public override void Start()
         {
             //The following 2 lines could be put in start.
