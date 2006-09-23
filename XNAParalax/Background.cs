@@ -4,44 +4,44 @@ using System.Text;
 using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ScrollerComponent;
-using TypeConverters;
-using Interfaces;
+using XNAParalax.XNATypeConverters;
+using XNAParalax.XNAScroller;
 using System.Globalization;
 using System.ComponentModel.Design.Serialization;
 using System.Reflection;
-using System.Diagnostics;
 
-namespace Paralax
+namespace XNAParalax
 {
     [Serializable]
     [TypeConverter(typeof(ParalaxBackground.LayerConverter))]
     public class ParalaxBackground
     {
         private string m_textureFile;
-
         private Vector2 m_Offset;
+        private bool mTileX;
+        private bool mTileY;
+        private IScroller mXScrollerComponent;
+        private IScroller mYScrollerComponent;
 
         [TypeConverter(typeof(Vector2Converter))]
         public Vector2 Offset
         {
             get { return m_Offset; }
             set { m_Offset = value; }
-        }
-	
-              
-        private bool mTileX;
-        private bool mTileY;
+        }	      
 
-        private IScroller mXScrollerComponent;
-        private IScroller mYScrollerComponent;
-
+        /// <summary>
+        /// The scroller that is used to modify the X Position.
+        /// </summary>
         public IScroller XScrollerComponent
         {
             get { return mXScrollerComponent; }
             set { mXScrollerComponent = value; }
         }
 
+        /// <summary>
+        /// The scroller that is used to modify the Y-Position of the layer.
+        /// </summary>
         public IScroller YScrollerComponent
         {
             get { return mYScrollerComponent; }
@@ -63,7 +63,7 @@ namespace Paralax
             }
         }
 
-        [DefaultValue("false")]
+        [DefaultValue("true")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public bool TileX
         {
@@ -113,6 +113,9 @@ namespace Paralax
             m_Offset = new Vector2(0, 100);
         }
 
+        /// <summary>
+        /// The Layer Converter is used to aid in design time serialization and thus allow easy access to editing of the layers.
+        /// </summary>
         public class LayerConverter : ExpandableObjectConverter 
         {
             public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
@@ -129,9 +132,7 @@ namespace Paralax
             {
                 string sValue = value as string;
                 object retVal = null;
-
-                Debugger.Break();
-
+                
                 if (sValue != null)
                 {
                     sValue = sValue.Trim();

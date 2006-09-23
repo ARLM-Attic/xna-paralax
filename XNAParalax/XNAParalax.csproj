@@ -34,6 +34,7 @@
     <Reference Include="Microsoft.Xna.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f48fa5f25d27e8ff, processorArchitecture=x86">
       <SpecificVersion>true</SpecificVersion>
     </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f48fa5f25d27e8ff, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f48fa5f25d27e8ff, processorArchitecture=MSIL">
       <SpecificVersion>true</SpecificVersion>
     </Reference>
@@ -41,8 +42,33 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="Camera2d.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Camera2d.designer.cs">
+      <DependentUpon>Camera2d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JoypadCamera2d.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="JoypadCamera2d.designer.cs">
+      <DependentUpon>JoypadCamera2d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParalaxComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XNAScroller\XNAParalax.XNAScroller.csproj">
+      <Project>{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}</Project>
+      <Name>XNAParalax.XNAScroller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XNATypeConverters\XNAParalax.XNATypeConverters.csproj">
+      <Project>{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}</Project>
+      <Name>XNAParalax.XNATypeConverters</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

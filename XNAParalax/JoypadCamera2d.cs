@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Components;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Storage;
 using System.ComponentModel;
+using XNAParalax.XNATypeConverters;
 
-namespace TypeConverters
+namespace XNAParalax
 {
+    [Serializable]
     public partial class JoypadCamera2d : Camera2d
     {
         private Vector2 m_speed;
 
-        [TypeConverter(typeof(Vector2Converter))]
+        [TypeConverter(typeof(Vector2Converter))]     
         public Vector2 Speed
         {
             get { return m_speed; }

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Components;
 
 
-namespace TypeConverters
+namespace XNAParalax
 {
     public partial class JoypadCamera2d : Camera2d
     {

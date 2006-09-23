@@ -7,9 +7,16 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using System.ComponentModel;
+using XNAParalax.XNATypeConverters;
 
-namespace TypeConverters
+namespace XNAParalax
 {
+    /// <summary>
+    /// A Game Component that is a 2D Camera.
+    /// 
+    /// The 2D Camera looks at a view in a 2D world.
+    /// </summary>
+    [Serializable]
     public partial class Camera2d : Microsoft.Xna.Framework.GameComponent
     {
         private Vector2 mWorldPosistion;
@@ -44,14 +51,7 @@ namespace TypeConverters
         {
             //The following 2 lines could be put in start.
             mView.Width = Game.Window.ClientWidth;
-            mView.Height = Game.Window.ClientHeight;
-
-            // TODO: Handle Resize Event
-        }
-
-        public override void Update()
-        {
-            // TODO: Add your update code here
+            mView.Height = Game.Window.ClientHeight;           
         }
                     
     }
