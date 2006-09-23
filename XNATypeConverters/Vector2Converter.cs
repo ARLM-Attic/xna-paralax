@@ -35,6 +35,9 @@ namespace XNAParalax.XNATypeConverters
                   
                 if ( sValue.Length != 0 )
                 {
+                    sValue = sValue.Replace("{","");
+                    sValue = sValue.Replace("}","");
+                    
                     // Parse the string
                     if ( null == culture )
                         culture = CultureInfo.CurrentCulture ;
@@ -45,7 +48,7 @@ namespace XNAParalax.XNATypeConverters
                     if ( parms.Length == 2 )
                     {
                         // Should have an integer and a string.
-                        float x = Convert.ToSingle ( parms[0] ) ;
+                        float x = Convert.ToSingle (parms[0]) ;
                         float y = Convert.ToSingle(parms[1]);
 
                         // And finally create the object
@@ -114,7 +117,7 @@ namespace XNAParalax.XNATypeConverters
                 values[1] = v2.Y.ToString();
 
                 // A useful method - join an array of strings using a separator, in this instance the culture specific one
-                return String.Join(culture.TextInfo.ListSeparator + " ", values);
+                return "{" + String.Join(culture.TextInfo.ListSeparator + " ", values) + "}";
            
             }
             

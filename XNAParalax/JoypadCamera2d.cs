@@ -20,6 +20,31 @@ namespace XNAParalax
             get { return m_speed; }
             set { m_speed = value; }
         }
+
+        private bool m_lockXAxis;
+
+        /// <summary>
+        /// Locks Changes to the X Axis
+        /// </summary>
+        [DefaultValue(false)]
+        public bool LockXAxis
+        {
+            get { return m_lockXAxis; }
+            set { m_lockXAxis = value; }
+        }
+
+        private bool m_lockYAxis;
+
+        /// <summary>
+        /// Locks the changes to the Y-Axis
+        /// </summary>
+        [DefaultValue(true)]
+        public bool LockYAxis
+        {
+            get { return m_lockYAxis; }
+            set { m_lockYAxis = value; }
+        }
+	
         
         public JoypadCamera2d(): base()
         {                 
@@ -30,8 +55,15 @@ namespace XNAParalax
         {
             GamePadState gsp = GamePad.GetState(PlayerIndex.One);
 
-            m_speed.X = gsp.ThumbSticks.Left.X * 100.0f;
-            m_speed.Y = gsp.ThumbSticks.Left.Y * 100.0f;
+            if (!LockXAxis)
+            {
+                m_speed.X = gsp.ThumbSticks.Left.X * 100.0f;
+            }
+
+            if (!LockYAxis)
+            {
+                m_speed.Y = gsp.ThumbSticks.Left.Y * 100.0f;
+            }
 
             this.WorldPos += (m_speed * 1 / Game.ElapsedTime.Milliseconds);
 

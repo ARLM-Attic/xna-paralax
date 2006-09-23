@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.XNAScroller", "X
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.XNATypeConverters", "XNATypeConverters\XNAParalax.XNATypeConverters.csproj", "{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.UnitTests", "UnitTests\XNAParalax.UnitTests\XNAParalax.UnitTests.csproj", "{2914B5D3-FC31-4ECA-891A-7C475A3167A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.XNAScroller.UnitTests", "UnitTests\XNAParalax.XNAScroller.UnitTests\XNAParalax.XNAScroller.UnitTests.csproj", "{7CCF2AB8-C009-475B-9DEE-6B1355AE9791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.XNATypeConverters.UnitTests", "UnitTests\XNAParalax.XNATypeConverters.UnitTests\XNAParalax.XNATypeConverters.UnitTests.csproj", "{31F8623C-2891-4388-9835-F226DA731741}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +31,18 @@ Global
 		{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2914B5D3-FC31-4ECA-891A-7C475A3167A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2914B5D3-FC31-4ECA-891A-7C475A3167A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2914B5D3-FC31-4ECA-891A-7C475A3167A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2914B5D3-FC31-4ECA-891A-7C475A3167A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CCF2AB8-C009-475B-9DEE-6B1355AE9791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CCF2AB8-C009-475B-9DEE-6B1355AE9791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CCF2AB8-C009-475B-9DEE-6B1355AE9791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CCF2AB8-C009-475B-9DEE-6B1355AE9791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F8623C-2891-4388-9835-F226DA731741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F8623C-2891-4388-9835-F226DA731741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F8623C-2891-4388-9835-F226DA731741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F8623C-2891-4388-9835-F226DA731741}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

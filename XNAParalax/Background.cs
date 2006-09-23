@@ -12,6 +12,9 @@ using System.Reflection;
 
 namespace XNAParalax
 {
+    /// <summary>
+    /// The Paralax Background Component.
+    /// </summary>
     [Serializable]
     [TypeConverter(typeof(ParalaxBackground.LayerConverter))]
     public class ParalaxBackground
@@ -23,6 +26,9 @@ namespace XNAParalax
         private IScroller mXScrollerComponent;
         private IScroller mYScrollerComponent;
 
+        /// <summary>
+        /// The offset of the texture.
+        /// </summary>
         [TypeConverter(typeof(Vector2Converter))]
         public Vector2 Offset
         {
@@ -49,6 +55,9 @@ namespace XNAParalax
         }
 	
 
+        /// <summary>
+        /// Should the Background Image be tiled in the Y-Axis
+        /// </summary>
         [DefaultValue("false")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public bool TileY
@@ -63,6 +72,9 @@ namespace XNAParalax
             }
         }
 
+        /// <summary>
+        /// Should the image be tiled in the X-Axis
+        /// </summary>
         [DefaultValue("true")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public bool TileX
@@ -77,6 +89,9 @@ namespace XNAParalax
             }
         }
 
+        /// <summary>
+        /// The filename of the texture to load as the background.
+        /// </summary>
         [DefaultValue("Test")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public string FileName
@@ -88,6 +103,9 @@ namespace XNAParalax
         [NonSerialized]
         private Texture2D m_texture;
 
+        /// <summary>
+        /// The Instance of the Background Texture.
+        /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Texture2D BackGroundTexture
@@ -110,7 +128,7 @@ namespace XNAParalax
             mTileY = false;
             mXScrollerComponent = new NullScroller(); 
             mYScrollerComponent = new NullScroller(); 
-            m_Offset = new Vector2(0, 100);
+            m_Offset = new Vector2(0, 0);
         }
 
         /// <summary>

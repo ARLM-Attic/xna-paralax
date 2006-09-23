@@ -6,12 +6,8 @@ using Microsoft.Xna.Framework.Components;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
-
-
 using System.ComponentModel;
 using XNAParalax.XNATypeConverters;
-
-
     
 namespace XNAParalax
 {
@@ -59,7 +55,7 @@ namespace XNAParalax
         {
             SpriteBatch sb = new SpriteBatch(this.Game.GameServices.GetService<IGraphicsDeviceService>().GraphicsDevice);
 
-            sb.Begin();
+            sb.Begin(SpriteBlendMode.AlphaBlend);
 
             foreach (ParalaxBackground layer in m_backgrounds)
             {
@@ -125,7 +121,7 @@ namespace XNAParalax
                 }
                                       
                 //Always draw the tile at least once
-                sb.Draw(texture, destCut, leftCut, Color.Red);
+                sb.Draw(texture, destCut, leftCut, Color.White);
 
 
                 if (layer.TileX)
@@ -133,7 +129,7 @@ namespace XNAParalax
                     for (int j = 1; j < tilesXCount; j++)
                     {
                         Vector2 v = new Vector2((j * width) - vCut.X, (int)layer.Offset.Y + Camera.ViewPort.Y);
-                        sb.Draw(texture, v, Color.Blue);
+                        sb.Draw(texture, v, Color.White);
                     }
                 }
                 else if (layer.TileY)
@@ -141,7 +137,7 @@ namespace XNAParalax
                     for (int j = 1; j < tilesYCount; j++)
                     {
                         Vector2 v = new Vector2((int)layer.Offset.X + Camera.ViewPort.X, (j * height) - vCut.Y);
-                        sb.Draw(texture, v, Color.Blue);
+                        sb.Draw(texture, v, Color.White);
                     }
                 }
 
@@ -160,7 +156,7 @@ namespace XNAParalax
                     destRightCut = new Rectangle((int)layer.Offset.X + Camera.ViewPort.X, (tilesYCount * height) - (int)vCut.Y, width, (int)vEdge.Y);
                 }
 
-                sb.Draw(texture, destRightCut, right, Color.Green);                    
+                sb.Draw(texture, destRightCut, right, Color.White);                    
             }
 
             sb.End();
