@@ -21,9 +21,9 @@ namespace XNAParalax
             get { return m_backgrounds; }               
         }
 
-        private JoypadCamera2d myCamera;
+        private Camera2d myCamera;
 
-        public JoypadCamera2d Camera
+        public Camera2d Camera
         {
             get { return myCamera; }
             set { myCamera = value; }

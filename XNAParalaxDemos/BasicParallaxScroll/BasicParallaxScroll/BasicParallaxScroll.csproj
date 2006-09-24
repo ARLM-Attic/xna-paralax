@@ -1,13 +1,13 @@
 ﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{4608A22C-FBEC-49B5-BEDB-6464606271CB}</ProjectGuid>
+    <ProjectGuid>{EF6AB576-ACB9-45BE-887E-4D47E9591D1C}</ProjectGuid>
     <ProjectTypeGuids>{9F340DF3-2AED-4330-AC16-78AC2D9B4738};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XNAParalax</RootNamespace>
-    <AssemblyName>XNAParalax</AssemblyName>
+    <RootNamespace>BasicParallaxScroll</RootNamespace>
+    <AssemblyName>BasicParallaxScroll</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,7 +34,6 @@
     <Reference Include="Microsoft.Xna.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f48fa5f25d27e8ff, processorArchitecture=x86">
       <SpecificVersion>true</SpecificVersion>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f48fa5f25d27e8ff, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f48fa5f25d27e8ff, processorArchitecture=MSIL">
       <SpecificVersion>true</SpecificVersion>
     </Reference>
@@ -42,39 +41,32 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Background.cs" />
-    <Compile Include="Camera2d.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Camera2d.designer.cs">
-      <DependentUpon>Camera2d.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ScrollingCamera2d.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ScrollingCamera2d.designer.cs">
-      <DependentUpon>ScrollingCamera2d.cs</DependentUpon>
-    </Compile>
-    <Compile Include="JoypadCamera2d.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="JoypadCamera2d.designer.cs">
-      <DependentUpon>JoypadCamera2d.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ParalaxComponent.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BasicParallaxScrollDemo.Designer.cs">
+      <DependentUpon>BasicParallaxScrollDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs">
+    </Compile>
+    <Compile Include="BasicParallaxScrollDemo.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XNAScroller\XNAParalax.XNAScroller.csproj">
-      <Project>{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}</Project>
-      <Name>XNAParalax.XNAScroller</Name>
+    <ProjectReference Include="..\..\..\XNAParalax\XNAParalax.csproj">
+      <Project>{4608A22C-FBEC-49B5-BEDB-6464606271CB}</Project>
+      <Name>XNAParalax</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XNATypeConverters\XNAParalax.XNATypeConverters.csproj">
-      <Project>{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}</Project>
-      <Name>XNAParalax.XNATypeConverters</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BasicParallaxScrollDemo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BasicParallaxScrollDemo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Media\city.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
