@@ -158,8 +158,7 @@ namespace XNAParalax
                     if (sValue.Length != 0)
                     {   
                         // And finally create the object
-                        retVal = new ParalaxBackground(sValue);
-                        
+                        retVal = new ParalaxBackground(sValue);                        
                     }
                 }
                 else

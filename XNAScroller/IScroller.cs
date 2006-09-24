@@ -13,6 +13,14 @@ namespace XNAParalax.XNAScroller
         {
             get;
             set;
-        }             
+        }
+               
+        /// <summary>
+        /// The speed of the scroller, in pixels per second.
+        /// </summary>
+        float Speed
+        {
+            get;
+        }
     }
 }
