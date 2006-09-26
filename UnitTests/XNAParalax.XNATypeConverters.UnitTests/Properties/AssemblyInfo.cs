@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("XNAParalax.XNATypeConverters.UnitTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("MCL Software LTD")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("XNAParalax.XNATypeConverters.UnitTests")]
-[assembly: AssemblyCopyright("Copyright © MCL Software LTD 2006")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
