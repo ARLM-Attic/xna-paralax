@@ -16,7 +16,10 @@ namespace XNAParalax.XNATypeConverters
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {
-            return sourceType == typeof(String);
+            if (sourceType == typeof(String))
+                return true;
+
+            return base.CanConvertFrom(context, sourceType);
         }
 
         public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
@@ -71,6 +74,10 @@ namespace XNAParalax.XNATypeConverters
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
             if (destinationType == typeof(InstanceDescriptor))
+            {
+                return true;
+            }
+            else if (destinationType == typeof(string))
             {
                 return true;
             }

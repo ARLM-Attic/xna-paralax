@@ -16,6 +16,7 @@ namespace XNAParalax
     {
         private List<ParalaxBackground> m_backgrounds;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]       
         public List<ParalaxBackground> Backgrounds
         {
             get { return m_backgrounds; }               

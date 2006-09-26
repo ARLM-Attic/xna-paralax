@@ -59,7 +59,7 @@ namespace XNAParalax
         /// Should the Background Image be tiled in the Y-Axis
         /// </summary>
         [DefaultValue("false")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool TileY
         {
             get { return mTileY; }
@@ -76,7 +76,7 @@ namespace XNAParalax
         /// Should the image be tiled in the X-Axis
         /// </summary>
         [DefaultValue("true")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool TileX
         {
             get { return mTileX; }
@@ -93,7 +93,7 @@ namespace XNAParalax
         /// The filename of the texture to load as the background.
         /// </summary>
         [DefaultValue("Test")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public string FileName
         {
             get { return m_textureFile; }
@@ -138,7 +138,10 @@ namespace XNAParalax
         {
             public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
             {
-                return sourceType == typeof(string);
+                if (sourceType == typeof(String))
+                    return true;
+
+                return base.CanConvertFrom(context, sourceType);
             }
 
             public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
@@ -176,6 +179,10 @@ namespace XNAParalax
             public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
             {
                 if (destinationType == typeof(InstanceDescriptor))
+                {
+                    return true;
+                }
+                else if (destinationType == typeof(string))
                 {
                     return true;
                 }

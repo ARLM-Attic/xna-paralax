@@ -15,6 +15,10 @@ namespace BasicParallaxScroll
             this.scrollingCamera2d = new XNAParalax.ScrollingCamera2d();
             this.paralaxBackground = new XNAParalax.ParalaxBackgroundComponent();
             // 
+            // graphics
+            // 
+            this.graphics.AllowMultiSampling = false;
+            // 
             // scrollingCamera2d
             // 
             this.scrollingCamera2d.Speed = ((Microsoft.Xna.Framework.Vector2)(resources.GetObject("scrollingCamera2d.Speed")));
@@ -22,14 +26,8 @@ namespace BasicParallaxScroll
             // 
             // paralaxBackground
             // 
-            XNAParalax.ParalaxBackground pb = new XNAParalax.ParalaxBackground("Media\\city.jpg");
-            
-
-            this.paralaxBackground.Backgrounds.Add(pb);
+            this.paralaxBackground.Backgrounds.Add(new XNAParalax.ParalaxBackground(""));
             this.paralaxBackground.Camera = this.scrollingCamera2d;
-
-            this.graphics.AllowMultiSampling = false; //Sorry Guys, my Graphics Card is rubbish :)
-           
             this.GameComponents.Add(this.graphics);
             this.GameComponents.Add(this.scrollingCamera2d);
             this.GameComponents.Add(this.paralaxBackground);
