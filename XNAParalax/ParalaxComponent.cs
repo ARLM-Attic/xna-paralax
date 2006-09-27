@@ -14,16 +14,17 @@ namespace XNAParalax
     [Serializable]
     public class ParalaxBackgroundComponent : GameComponent
     {
-        private List<ParalaxBackground> m_backgrounds;
-
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]       
+        private List<ParalaxBackground> m_backgrounds;       
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public List<ParalaxBackground> Backgrounds
         {
-            get { return m_backgrounds; }               
+            get { return m_backgrounds; }
+
         }
 
         private Camera2d myCamera;
 
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]  
         public Camera2d Camera
         {
             get { return myCamera; }
@@ -32,7 +33,8 @@ namespace XNAParalax
 
         public ParalaxBackgroundComponent()
         {
-            m_backgrounds = new List<ParalaxBackground>();                
+            m_backgrounds = new List<ParalaxBackground>();       
+                  
         }
 
         protected override void OnGameChanging(Game previousGame)

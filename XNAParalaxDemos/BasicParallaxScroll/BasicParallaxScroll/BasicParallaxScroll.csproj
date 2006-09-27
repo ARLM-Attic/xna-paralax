@@ -56,6 +56,10 @@
       <Project>{4608A22C-FBEC-49B5-BEDB-6464606271CB}</Project>
       <Name>XNAParalax</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\XNAScroller\XNAParalax.XNAScroller.csproj">
+      <Project>{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}</Project>
+      <Name>XNAParalax.XNAScroller</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BasicParallaxScrollDemo.resx">

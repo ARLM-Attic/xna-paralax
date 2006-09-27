@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using System.ComponentModel.Design.Serialization;
+using System.ComponentModel;
 
 namespace XNAParalax.XNAScroller
 {
@@ -16,9 +17,10 @@ namespace XNAParalax.XNAScroller
     /// Use this class when you need to ensure that a Layer in the XNA Background doesn't scroll.
     /// </summary>
     [Serializable]
+    [TypeConverter(typeof(NullScrollerConverter))]
     public class NullScroller: GameComponent, IScroller
     {
-        private float offset;
+        protected float offset;
 
         /// <summary>
         /// The offset that we apply at the start of the game
@@ -29,7 +31,7 @@ namespace XNAParalax.XNAScroller
             set { offset = value; }
         }
 
-        private float m_speed;
+        protected float m_speed;
 
         /// <summary>
         /// The speed that the scroller scrolls in pixels per second

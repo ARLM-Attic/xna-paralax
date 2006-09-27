@@ -17,21 +17,11 @@ namespace XNAParalax.XNAScroller
     /// Sin Scroller is an oscilator.  It updates the offset based on a sin curve.
     /// </summary>
     [Serializable]
-    public class SinScroller : GameComponent,IScroller
+    [TypeConverter(typeof(SinScrollerConverter))]
+    public class SinScroller : NullScroller, IScroller
     {
         #region IScroller Members
-
-        private float offset;
-                
-        /// <summary>
-        /// The offset in the sin curve, in radians
-        /// </summary>
-        public float Offset
-        {
-            get { return offset; }
-            set { offset = value; }
-        }
-
+        
         private float m_magnitude;
 
         /// <summary>
@@ -43,16 +33,6 @@ namespace XNAParalax.XNAScroller
             set { m_magnitude = value; }
         }
 	
-
-        private float m_speed;
-
-        /// <summary>
-        /// The speed of the scroller, in radians per second.
-        /// </summary>
-        public float Speed
-        {
-            get { return m_speed; }
-        }
 
         private double totalRadians = 0.0;
 

@@ -9,6 +9,7 @@ using XNAParalax.XNAScroller;
 using System.Globalization;
 using System.ComponentModel.Design.Serialization;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace XNAParalax
 {
@@ -30,6 +31,7 @@ namespace XNAParalax
         /// The offset of the texture.
         /// </summary>
         [TypeConverter(typeof(Vector2Converter))]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         public Vector2 Offset
         {
             get { return m_Offset; }
@@ -38,7 +40,7 @@ namespace XNAParalax
 
         /// <summary>
         /// The scroller that is used to modify the X Position.
-        /// </summary>
+        /// </summary>            
         public IScroller XScrollerComponent
         {
             get { return mXScrollerComponent; }
@@ -47,7 +49,7 @@ namespace XNAParalax
 
         /// <summary>
         /// The scroller that is used to modify the Y-Position of the layer.
-        /// </summary>
+        /// </summary>       
         public IScroller YScrollerComponent
         {
             get { return mYScrollerComponent; }
@@ -58,8 +60,6 @@ namespace XNAParalax
         /// <summary>
         /// Should the Background Image be tiled in the Y-Axis
         /// </summary>
-        [DefaultValue("false")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         public bool TileY
         {
             get { return mTileY; }
@@ -74,9 +74,7 @@ namespace XNAParalax
 
         /// <summary>
         /// Should the image be tiled in the X-Axis
-        /// </summary>
-        [DefaultValue("true")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        /// </summary>  
         public bool TileX
         {
             get { return mTileX; }
@@ -91,9 +89,7 @@ namespace XNAParalax
 
         /// <summary>
         /// The filename of the texture to load as the background.
-        /// </summary>
-        [DefaultValue("Test")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        /// </summary>        
         public string FileName
         {
             get { return m_textureFile; }
@@ -108,17 +104,20 @@ namespace XNAParalax
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public Texture2D BackGroundTexture
+       public Texture2D BackGroundTexture
         {
-            get { return m_texture; }
-            set { m_texture = value; }
+           get { return m_texture; }
+           set { m_texture = value; }
         }      
 
         public ParalaxBackground()
         {
             m_textureFile = "";
-            mTileX = false;
+            mTileX = true;
             mTileY = false;
+            m_Offset = new Vector2(0, 0);
+            mXScrollerComponent = new NullScroller();
+            mYScrollerComponent = new NullScroller();
         }
 
         public ParalaxBackground(string filename)
@@ -126,116 +125,37 @@ namespace XNAParalax
             m_textureFile = filename;
             mTileX = true;
             mTileY = false;
-            mXScrollerComponent = new NullScroller(); 
-            mYScrollerComponent = new NullScroller(); 
+            
             m_Offset = new Vector2(0, 0);
+            mXScrollerComponent = new NullScroller();
+            mYScrollerComponent = new NullScroller();
         }
+
+
 
         /// <summary>
         /// The Layer Converter is used to aid in design time serialization and thus allow easy access to editing of the layers.
         /// </summary>
-        public class LayerConverter : ExpandableObjectConverter 
+        internal class LayerConverter : TypeConverter
         {
-            public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+            public override bool CanConvertTo(ITypeDescriptorContext context, Type destType)
             {
-                if (sourceType == typeof(String))
+                if (destType == typeof(InstanceDescriptor))
                     return true;
-
-                return base.CanConvertFrom(context, sourceType);
+                return base.CanConvertTo(context, destType);
             }
-
-            public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
+            public override object ConvertTo(ITypeDescriptorContext context,
+                System.Globalization.CultureInfo culture, object value, Type destType)
             {
-                return true;
-            }
-
-            public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
-            {
-                string sValue = value as string;
-                object retVal = null;
-                
-                if (sValue != null)
+                if (destType == typeof(InstanceDescriptor))
                 {
-                    sValue = sValue.Trim();
-
-                    if (sValue.Length != 0)
-                    {   
-                        // And finally create the object
-                        retVal = new ParalaxBackground(sValue);                        
-                    }
+                    System.Reflection.ConstructorInfo ci =
+                        typeof(ParalaxBackground).GetConstructor(
+                        System.Type.EmptyTypes);
+                    return new InstanceDescriptor(ci, null, false);
                 }
-                else
-                    retVal = base.ConvertFrom(context, culture, value);
-
-                return retVal;
-
+                return base.ConvertTo(context, culture, value, destType);
             }
-
-            public override object CreateInstance(ITypeDescriptorContext context, System.Collections.IDictionary propertyValues)
-            {
-                return new ParalaxBackground(propertyValues["FileName"] as string);
-            }
-
-            public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
-            {
-                if (destinationType == typeof(InstanceDescriptor))
-                {
-                    return true;
-                }
-                else if (destinationType == typeof(string))
-                {
-                    return true;
-                }
-
-                // Always call the base to see if it can perform the conversion.
-                return base.CanConvertTo(context, destinationType);
-            }
-
-
-            // This code performs the actual conversion from a Triangle to an InstanceDescriptor.
-            public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
-            {
-                ParalaxBackground v2 = (ParalaxBackground)value;
-
-                if (destinationType == typeof(InstanceDescriptor))
-                {
-                    System.Type[] argTypes = new System.Type[1];
-
-                    argTypes[0] = typeof(string);
-
-                    // Lookup the appropriate Doofer constructor
-                    ConstructorInfo constructor = typeof(ParalaxBackground).GetConstructor(argTypes);
-
-                    object[] arguments = new object[1];
-
-                    arguments[0] = v2.FileName;
-
-                    return new InstanceDescriptor(constructor, arguments);
-                }
-                else if (destinationType == typeof(string))
-                {
-                    return v2.FileName;
-                }
-
-                // Always call base, even if you can't convert.
-                return base.ConvertTo(context, culture, value, destinationType);
-            }
-
-
-            public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)
-            {
-                PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(value, attributes);
-                
-                // Return a sorted list of properties
-                return properties;
-            }
-
-            public override bool GetPropertiesSupported(ITypeDescriptorContext context)
-            {
-                return true;
-            }
-
         }
-    }
-
+    }  
 }

@@ -19,28 +19,10 @@ namespace XNAParalax.XNAScroller
     /// should have moved since the last frame based on the configured speed.
     /// </summary>
     [Serializable]
-    public class Scroller: GameComponent, IScroller
+    [TypeConverter(typeof(ScrollerConverter))]
+    public class Scroller: NullScroller, IScroller
     {
-        private float offset;
-
-        /// <summary>
-        /// The amount pixels offset since the last frame.
-        /// </summary>
-        public float Offset
-        {
-            get { return offset; }
-            set { offset = value; }
-        }
-
-        private float m_speed;
-
-        /// <summary>
-        /// The speed of the scroller, in pixels per second.
-        /// </summary>
-        public float Speed
-        {
-            get { return m_speed; }            
-        }
+           
 	
         /// <summary>
         /// The default constructor.
