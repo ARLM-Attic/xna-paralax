@@ -56,7 +56,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TypeConverters\TypeConverters.csproj">
+    <ProjectReference Include="..\XNATypeConverters\XNAParalax.XNATypeConverters.csproj">
       <Project>{E3A329D4-4BA7-4F55-AD7F-99FCBB888631}</Project>
       <Name>TypeConverters</Name>
     </ProjectReference>

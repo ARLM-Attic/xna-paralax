@@ -63,6 +63,30 @@ namespace XNAParalax.XNAScroller
             m_speed = 2.0f * (float) Math.PI;  //Once complete oscillation in 1 second
             m_magnitude = 1.0f; //Don't multiply the scale of the change.
         }
-               
+
+        /// <summary>
+        /// The Layer Converter is used to aid in design time serialization and thus allow easy access to editing of the layers.
+        /// </summary>
+        internal class SinScrollerConverter : TypeConverter
+        {
+            public override bool CanConvertTo(ITypeDescriptorContext context, Type destType)
+            {
+                if (destType == typeof(InstanceDescriptor))
+                    return true;
+                return base.CanConvertTo(context, destType);
+            }
+            public override object ConvertTo(ITypeDescriptorContext context,
+                System.Globalization.CultureInfo culture, object value, Type destType)
+            {
+                if (destType == typeof(InstanceDescriptor))
+                {
+                    System.Reflection.ConstructorInfo ci =
+                        typeof(SinScroller).GetConstructor(
+                        System.Type.EmptyTypes);
+                    return new InstanceDescriptor(ci, null, false);
+                }
+                return base.ConvertTo(context, culture, value, destType);
+            }
+        }
     }
 }

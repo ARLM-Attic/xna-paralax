@@ -20,6 +20,10 @@ namespace BasicParallaxScroll
             // graphics
             // 
             this.graphics.AllowMultiSampling = false;
+            this.graphics.MinimumPixelShaderProfile = Microsoft.Xna.Framework.Graphics.ShaderProfile.PS_1_1;
+            this.graphics.MinimumVertexShaderProfile = Microsoft.Xna.Framework.Graphics.ShaderProfile.VS_1_1;
+            this.graphics.DepthStencilFormat = Microsoft.Xna.Framework.Graphics.DepthFormat.Depth16;
+            
             // 
             // paralaxBackground
             // 
