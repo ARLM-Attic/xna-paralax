@@ -38,7 +38,8 @@ namespace XNAParalax.XNAScroller
         /// </summary>
         public float Speed
         {
-            get { return m_speed; }            
+            get { return m_speed; }
+            set { m_speed = value; }
         }
 	
         /// <summary>

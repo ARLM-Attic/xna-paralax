@@ -75,7 +75,7 @@ namespace XNAParalax
                 
                 //The amount to cut from the start    
                                    
-                if (Camera.ViewPort.X > 0.0f && layer.TileX )
+                if (Camera.ViewPort.X >= 0.0f && layer.TileX )
                 {
                     vCut.X = (int)Math.Abs(Camera.ViewPort.X + layer.Offset.X) % width;
                 }
