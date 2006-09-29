@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework;
 using System.Globalization;
 using System.ComponentModel.Design.Serialization;
 using System.CodeDom;
-using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Reflection;
 using System.Diagnostics;
@@ -15,8 +14,7 @@ using System.IO;
 
 namespace XNAParalax.XNATypeConverters
 {
-
-    public class Vector2Converter: ExpandableObjectConverter
+      public class Vector2Converter: ExpandableObjectConverter
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
         {

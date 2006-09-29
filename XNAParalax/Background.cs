@@ -32,7 +32,6 @@ namespace XNAParalax
         /// The offset of the texture.
         /// </summary>
         [TypeConverter(typeof(Vector2Converter))]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]        
         public Vector2 Offset
         {
             get { return m_Offset; }
