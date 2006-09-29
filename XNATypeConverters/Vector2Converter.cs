@@ -5,6 +5,9 @@ using System.ComponentModel;
 using Microsoft.Xna.Framework;
 using System.Globalization;
 using System.ComponentModel.Design.Serialization;
+using System.CodeDom;
+using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Reflection;
 using System.Diagnostics;
 using System.IO;
@@ -12,6 +15,7 @@ using System.IO;
 
 namespace XNAParalax.XNATypeConverters
 {
+
     public class Vector2Converter: ExpandableObjectConverter
     {
         public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
@@ -90,6 +94,7 @@ namespace XNAParalax.XNATypeConverters
         // This code performs the actual conversion from a Triangle to an InstanceDescriptor.
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
+            object returnValue = null;
             Vector2 v2 = (Vector2) value ;
 
             if (destinationType == typeof(InstanceDescriptor))
@@ -107,7 +112,7 @@ namespace XNAParalax.XNATypeConverters
                 arguments[0] = v2.X;
                 arguments[1] = v2.Y;
 
-                return new InstanceDescriptor(constructor, arguments);
+                returnValue = new InstanceDescriptor(constructor, arguments);
             }
             else if (destinationType == typeof(string))
             {
@@ -124,12 +129,10 @@ namespace XNAParalax.XNATypeConverters
                 values[1] = v2.Y.ToString();
 
                 // A useful method - join an array of strings using a separator, in this instance the culture specific one
-                return "{" + String.Join(culture.TextInfo.ListSeparator + " ", values) + "}";
+                returnValue = "{" + String.Join(culture.TextInfo.ListSeparator + " ", values) + "}";
            
             }
-            
-            // Always call base, even if you can't convert.
-            return base.ConvertTo(context, culture, value, destinationType);
+            return returnValue;
         }
 
 
@@ -150,6 +153,5 @@ namespace XNAParalax.XNATypeConverters
         {
             return true;
         }
-
-    }
+    }    
 }

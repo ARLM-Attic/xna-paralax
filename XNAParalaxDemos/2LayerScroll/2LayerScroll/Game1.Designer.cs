@@ -27,7 +27,7 @@ namespace _LayerScroll
             // scroller2
             // 
             this.scroller2.Offset = 0F;
-            this.scroller2.Speed = 50F;
+            this.scroller2.Speed = 10F;
             // 
             // graphics
             // 

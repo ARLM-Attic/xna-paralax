@@ -21,6 +21,7 @@ namespace XNAParalax.XNAScroller
         float Speed
         {
             get;
+            set;
         }
     }
 }

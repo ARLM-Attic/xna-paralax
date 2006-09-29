@@ -21,6 +21,7 @@ namespace XNAParalax
     public class ParalaxBackground
     {
         private string m_textureFile;
+        [NonSerialized]
         private Vector2 m_Offset;
         private bool mTileX;
         private bool mTileY;
@@ -31,7 +32,7 @@ namespace XNAParalax
         /// The offset of the texture.
         /// </summary>
         [TypeConverter(typeof(Vector2Converter))]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]        
         public Vector2 Offset
         {
             get { return m_Offset; }
