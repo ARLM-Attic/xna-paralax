@@ -10,11 +10,10 @@ namespace _LayerScroll
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game1));
-            XNAParalax.ParalaxBackground paralaxBackground1 = new XNAParalax.ParalaxBackground();
-            XNAParalax.ParalaxBackground paralaxBackground2 = new XNAParalax.ParalaxBackground();
-            this.scroller1 = new XNAParalax.XNAScroller.Scroller();
-            this.scroller2 = new XNAParalax.XNAScroller.Scroller();
+            XNAParalax.ParalaxBackground paralaxBackground1 = ((XNAParalax.ParalaxBackground)(new XNAParalax.ParalaxBackground()));
+            XNAParalax.ParalaxBackground paralaxBackground2 = ((XNAParalax.ParalaxBackground)(new XNAParalax.ParalaxBackground()));
+            this.scroller1 = ((XNAParalax.XNAScroller.Scroller)(new XNAParalax.XNAScroller.Scroller()));
+            this.scroller2 = ((XNAParalax.XNAScroller.Scroller)(new XNAParalax.XNAScroller.Scroller()));
             this.graphics = new Microsoft.Xna.Framework.Components.GraphicsComponent();
             this.camera2d1 = new XNAParalax.Camera2d();
             this.paralaxBackgroundComponent1 = new XNAParalax.ParalaxBackgroundComponent();
@@ -35,17 +34,17 @@ namespace _LayerScroll
             // 
             // camera2d1
             // 
-            this.camera2d1.WorldPos = ((Microsoft.Xna.Framework.Vector2)(resources.GetObject("camera2d1.WorldPos")));
+            this.camera2d1.WorldPos = new Microsoft.Xna.Framework.Vector2(0F, 0F);
             // 
             // paralaxBackgroundComponent1
             // 
             paralaxBackground1.FileName = "Media\\cloud.dds";
-            paralaxBackground1.Offset = ((Microsoft.Xna.Framework.Vector2)(resources.GetObject("paralaxBackground1.Offset")));
+            paralaxBackground1.Offset = new Microsoft.Xna.Framework.Vector2(10F, 0F);
             paralaxBackground1.TileX = true;
             paralaxBackground1.TileY = false;
             paralaxBackground1.XScrollerComponent = this.scroller1;
             paralaxBackground2.FileName = "Media\\cloud.dds";
-            paralaxBackground2.Offset = ((Microsoft.Xna.Framework.Vector2)(resources.GetObject("paralaxBackground2.Offset")));
+            paralaxBackground2.Offset = new Microsoft.Xna.Framework.Vector2(0F, 0F);
             paralaxBackground2.TileX = true;
             paralaxBackground2.TileY = false;
             paralaxBackground2.XScrollerComponent = this.scroller2;

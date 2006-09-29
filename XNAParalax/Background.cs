@@ -10,6 +10,7 @@ using System.Globalization;
 using System.ComponentModel.Design.Serialization;
 using System.Reflection;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace XNAParalax
 {
@@ -112,10 +113,17 @@ namespace XNAParalax
 
         public ParalaxBackground()
         {
+            Attribute[] attr = new Attribute[1];
+            TypeConverterAttribute vConv = new TypeConverterAttribute(typeof(Vector2Converter));
+            attr[0] = vConv;
+
+            
+            
             m_textureFile = "";
             mTileX = true;
             mTileY = false;
             m_Offset = new Vector2(0, 0);
+            TypeDescriptor.AddAttributes(typeof(Vector2), attr);
             mXScrollerComponent = new NullScroller();
             mYScrollerComponent = new NullScroller();
         }
