@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RandomScroller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NullScroller.cs">
       <SubType>Component</SubType>
     </Compile>
