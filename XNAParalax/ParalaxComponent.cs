@@ -83,9 +83,13 @@ namespace XNAParalax
                 {
                     vCut.X = width + ((int)(Camera.ViewPort.X + layer.Offset.X )% width);
                 }
+                else if (layer.TileX)
+                {
+                    vCut.X = ((int)(Math.Abs(width + (Camera.ViewPort.X % width)) + Math.Abs(layer.Offset.X % width)) % width);
+                }
                 else
                 {
-                    vCut.X = ((int)(Math.Abs(width + (Camera.ViewPort.X %width)) + Math.Abs(layer.Offset.X % width)) % width);
+                    vCut.X = 0;
                 }
 
                 if (Camera.ViewPort.Y > 0.0f && layer.TileY)
@@ -94,12 +98,11 @@ namespace XNAParalax
                 }
                 else if (layer.TileY)
                 {
-                    vCut.Y = height + ((int)Camera.ViewPort.Y % height);
-                }
-                else
-                {
                     vCut.Y = ((int)(Math.Abs(height + (Camera.ViewPort.Y % height)) + Math.Abs(layer.Offset.Y % height)) % height);
-               
+                }
+                else                
+                {
+                    vCut.Y = 0;
                 }
 
                 int tilesXCount = (Game.Window.ClientWidth + (int) vCut.X) / width;
