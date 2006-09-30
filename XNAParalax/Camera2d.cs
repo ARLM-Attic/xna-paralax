@@ -50,6 +50,10 @@ namespace XNAParalax
         
         public Camera2d()
         {
+            Attribute[] attr = new Attribute[1];
+            TypeConverterAttribute vConv = new TypeConverterAttribute(typeof(Vector2Converter));
+            attr[0] = vConv;
+            TypeDescriptor.AddAttributes(typeof(Vector2), attr);
             InitializeComponent();
         }
 

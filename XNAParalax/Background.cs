@@ -116,14 +116,14 @@ namespace XNAParalax
             Attribute[] attr = new Attribute[1];
             TypeConverterAttribute vConv = new TypeConverterAttribute(typeof(Vector2Converter));
             attr[0] = vConv;
-
+            TypeDescriptor.AddAttributes(typeof(Vector2), attr);
             
             
             m_textureFile = "";
             mTileX = true;
             mTileY = false;
             m_Offset = new Vector2(0, 0);
-            TypeDescriptor.AddAttributes(typeof(Vector2), attr);
+            
             mXScrollerComponent = new NullScroller();
             mYScrollerComponent = new NullScroller();
         }
@@ -133,6 +133,11 @@ namespace XNAParalax
             m_textureFile = filename;
             mTileX = true;
             mTileY = false;
+
+            Attribute[] attr = new Attribute[1];
+            TypeConverterAttribute vConv = new TypeConverterAttribute(typeof(Vector2Converter));
+            attr[0] = vConv;
+            TypeDescriptor.AddAttributes(typeof(Vector2), attr);
             
             m_Offset = new Vector2(0, 0);
             mXScrollerComponent = new NullScroller();
