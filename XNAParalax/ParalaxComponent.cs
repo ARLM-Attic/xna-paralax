@@ -77,15 +77,15 @@ namespace XNAParalax
                                    
                 if (Camera.ViewPort.X >= 0.0f && layer.TileX )
                 {
-                    vCut.X = (int)Math.Abs(Camera.ViewPort.X + layer.Offset.X) % width;
+                    vCut.X = (int)Math.Abs(Camera.ViewPort.X % width) + Math.Abs(layer.Offset.X % width);               
                 }
                 else if (layer.TileX && Camera.ViewPort.Width > width)
                 {
                     vCut.X = width + ((int)(Camera.ViewPort.X + layer.Offset.X )% width);
-                }                
+                }
                 else
                 {
-                    vCut.X = 0;
+                    vCut.X = ((int)(Math.Abs(width + (Camera.ViewPort.X %width)) + Math.Abs(layer.Offset.X % width)) % width);
                 }
 
                 if (Camera.ViewPort.Y > 0.0f && layer.TileY)
@@ -98,7 +98,8 @@ namespace XNAParalax
                 }
                 else
                 {
-                    vCut.Y = 0;
+                    vCut.Y = ((int)(Math.Abs(height + (Camera.ViewPort.Y % height)) + Math.Abs(layer.Offset.Y % height)) % height);
+               
                 }
 
                 int tilesXCount = (Game.Window.ClientWidth + (int) vCut.X) / width;
@@ -112,11 +113,12 @@ namespace XNAParalax
 
                 Rectangle leftCut;
                 Rectangle destCut;
-
-                leftCut = new Rectangle((int)vCut.X, (int) vCut.Y, width - (int) vCut.X, height - (int) vCut.Y);
+                   
+                leftCut = new Rectangle((int)vCut.X, (int)vCut.Y, width - (int)vCut.X, height - (int)vCut.Y);
+                
                 if (layer.TileX)
-                {
-                    destCut = new Rectangle(0, (int)layer.Offset.Y + Camera.ViewPort.Y, width - (int)vCut.X, height - (int)vCut.Y);
+                {                    
+                   destCut = new Rectangle(0, (int)layer.Offset.Y + Camera.ViewPort.Y, width - (int)vCut.X, height - (int)vCut.Y);
                 }
                 else
                 {
