@@ -67,6 +67,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XNAParallax.Utils\XNAParallax.Utils.csproj">
+      <Project>{EEE58B66-9FDF-4731-8C4B-A959D6BF1E09}</Project>
+      <Name>XNAParallax.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XNAScroller\XNAParalax.XNAScroller.csproj">
       <Project>{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}</Project>
       <Name>XNAParalax.XNAScroller</Name>

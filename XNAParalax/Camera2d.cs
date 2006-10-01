@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using System.ComponentModel;
 using XNAParalax.XNATypeConverters;
+using XNAParallax.Utils;
 
 namespace XNAParalax
 {
@@ -50,10 +51,7 @@ namespace XNAParalax
         
         public Camera2d()
         {
-            Attribute[] attr = new Attribute[1];
-            TypeConverterAttribute vConv = new TypeConverterAttribute(typeof(Vector2Converter));
-            attr[0] = vConv;
-            TypeDescriptor.AddAttributes(typeof(Vector2), attr);
+            TypeConverterRegistration.Register<Vector2, Vector2Converter>();
             InitializeComponent();
         }
 

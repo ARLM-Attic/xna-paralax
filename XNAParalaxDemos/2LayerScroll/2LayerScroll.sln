@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.XNATypeConverter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParalax.XNAScroller", "..\..\XNAScroller\XNAParalax.XNAScroller.csproj", "{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAParallax.Utils", "..\..\XNAParallax.Utils\XNAParallax.Utils.csproj", "{EEE58B66-9FDF-4731-8C4B-A959D6BF1E09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1BE726-6DF4-42FF-933A-E51E530A2CE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE58B66-9FDF-4731-8C4B-A959D6BF1E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE58B66-9FDF-4731-8C4B-A959D6BF1E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE58B66-9FDF-4731-8C4B-A959D6BF1E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE58B66-9FDF-4731-8C4B-A959D6BF1E09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

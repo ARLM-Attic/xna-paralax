@@ -11,6 +11,7 @@ using System.ComponentModel.Design.Serialization;
 using System.Reflection;
 using System.Diagnostics;
 using System.Reflection;
+using XNAParallax.Utils;
 
 namespace XNAParalax
 {
@@ -113,10 +114,7 @@ namespace XNAParalax
 
         public ParalaxBackground()
         {
-            Attribute[] attr = new Attribute[1];
-            TypeConverterAttribute vConv = new TypeConverterAttribute(typeof(Vector2Converter));
-            attr[0] = vConv;
-            TypeDescriptor.AddAttributes(typeof(Vector2), attr);
+            TypeConverterRegistration.Register<Vector2, Vector2Converter>();
             
             
             m_textureFile = "";
@@ -134,10 +132,7 @@ namespace XNAParalax
             mTileX = true;
             mTileY = false;
 
-            Attribute[] attr = new Attribute[1];
-            TypeConverterAttribute vConv = new TypeConverterAttribute(typeof(Vector2Converter));
-            attr[0] = vConv;
-            TypeDescriptor.AddAttributes(typeof(Vector2), attr);
+            TypeConverterRegistration.Register<Vector2, Vector2Converter>();
             
             m_Offset = new Vector2(0, 0);
             mXScrollerComponent = new NullScroller();
