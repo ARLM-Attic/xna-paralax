@@ -10,7 +10,6 @@ using System.Globalization;
 using System.ComponentModel.Design.Serialization;
 using System.Reflection;
 using System.Diagnostics;
-using System.Reflection;
 using XNAParallax.Utils;
 
 namespace XNAParalax
