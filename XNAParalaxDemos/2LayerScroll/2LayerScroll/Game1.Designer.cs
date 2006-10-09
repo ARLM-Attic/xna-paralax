@@ -21,7 +21,7 @@ namespace _LayerScroll
             // scroller1
             // 
             this.scroller1.Offset = 0F;
-            this.scroller1.Speed = 10F;
+            this.scroller1.Speed = 20F;
             // 
             // scroller2
             // 
@@ -39,11 +39,13 @@ namespace _LayerScroll
             // paralaxBackgroundComponent1
             // 
             paralaxBackground1.FileName = "Media\\cloud.dds";
-            paralaxBackground1.Offset = new Microsoft.Xna.Framework.Vector2(10F, 0F);
+            paralaxBackground1.LayerDepth = 0.1F;
+            paralaxBackground1.Offset = new Microsoft.Xna.Framework.Vector2(150F, 100F);
             paralaxBackground1.TileX = true;
             paralaxBackground1.TileY = false;
             paralaxBackground1.XScrollerComponent = this.scroller1;
             paralaxBackground2.FileName = "Media\\cloud.dds";
+            paralaxBackground2.LayerDepth = 0.5F;
             paralaxBackground2.Offset = new Microsoft.Xna.Framework.Vector2(0F, 0F);
             paralaxBackground2.TileX = true;
             paralaxBackground2.TileY = false;

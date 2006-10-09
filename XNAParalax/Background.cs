@@ -11,6 +11,10 @@ using System.ComponentModel.Design.Serialization;
 using System.Reflection;
 using System.Diagnostics;
 using XNAParallax.Utils;
+using System.Windows.Forms.Design;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Design;
 
 namespace XNAParalax
 {
@@ -37,7 +41,19 @@ namespace XNAParalax
         {
             get { return m_Offset; }
             set { m_Offset = value; }
-        }	      
+        }
+
+        private float layerDepth;
+
+        /// <summary>
+        /// The Depth of the layer, ensures that the ordering of the layers is respected.
+        /// </summary>
+        public float LayerDepth
+        {
+            get { return layerDepth; }
+            set { layerDepth = value; }
+        }
+	
 
         /// <summary>
         /// The scroller that is used to modify the X Position.
@@ -90,7 +106,8 @@ namespace XNAParalax
 
         /// <summary>
         /// The filename of the texture to load as the background.
-        /// </summary>        
+        /// </summary> 
+        [Editor(typeof(FileNameEditor), typeof(UITypeEditor))]
         public string FileName
         {
             get { return m_textureFile; }
@@ -120,6 +137,7 @@ namespace XNAParalax
             mTileX = true;
             mTileY = false;
             m_Offset = new Vector2(0, 0);
+            layerDepth = 0;
             
             mXScrollerComponent = new NullScroller();
             mYScrollerComponent = new NullScroller();
@@ -132,7 +150,8 @@ namespace XNAParalax
             mTileY = false;
 
             TypeConverterRegistration.Register<Vector2, Vector2Converter>();
-            
+
+            layerDepth = 0;
             m_Offset = new Vector2(0, 0);
             mXScrollerComponent = new NullScroller();
             mYScrollerComponent = new NullScroller();
