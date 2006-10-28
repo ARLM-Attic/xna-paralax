@@ -42,7 +42,10 @@ namespace XNAParalax.XNAScroller
         /// </summary>
         public override void Update()
         {
-            offset = (m_speed * 1 / Game.ElapsedTime.Milliseconds);
+            if (!paused)
+            {
+                offset = (m_speed * 1 / Game.ElapsedTime.Milliseconds);
+            }
             
             base.Update();
         }

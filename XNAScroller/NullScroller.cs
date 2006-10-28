@@ -33,6 +33,17 @@ namespace XNAParalax.XNAScroller
 
         protected float m_speed;
 
+        protected bool paused;
+
+        /// <summary>
+        /// Is the Scroller Paused
+        /// </summary>
+        public bool IsPaused
+        {
+            get { return paused; }
+            set { paused = value; }
+        }
+
         /// <summary>
         /// The speed that the scroller scrolls in pixels per second
         /// </summary>

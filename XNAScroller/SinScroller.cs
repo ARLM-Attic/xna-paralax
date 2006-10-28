@@ -43,9 +43,12 @@ namespace XNAParalax.XNAScroller
         /// </summary>
         public override void Update()
         {
-            totalRadians += m_speed * (Game.ElapsedTime.Milliseconds / 1000.0f);
+            if (!paused)
+            {
+                totalRadians += m_speed * (Game.ElapsedTime.Milliseconds / 1000.0f);
 
-            offset = (float)Math.Sin(totalRadians) * m_magnitude;           
+                offset = (float)Math.Sin(totalRadians) * m_magnitude;
+            }
             base.Update();
         }
 

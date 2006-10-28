@@ -54,15 +54,17 @@ namespace XNAParalax.XNAScroller
         /// </summary>
         public override void Update()
         {
-            if (isPositive)
+            if (!paused)
             {
-                offset = (r.Next((int)m_magnitude) * 1 / Game.ElapsedTime.Milliseconds); 
+                if (isPositive)
+                {
+                    offset = (r.Next((int)m_magnitude) * 1 / Game.ElapsedTime.Milliseconds);
+                }
+                else
+                {
+                    offset = (-(r.Next((int)m_magnitude)) * 1 / Game.ElapsedTime.Milliseconds);
+                }
             }
-            else
-            {
-                offset = (-(r.Next((int)m_magnitude)) * 1 / Game.ElapsedTime.Milliseconds); 
-            }
-     
             base.Update();
         }
 

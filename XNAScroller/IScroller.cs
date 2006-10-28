@@ -23,5 +23,15 @@ namespace XNAParalax.XNAScroller
             get;
             set;
         }
+
+
+        /// <summary>
+        /// Is the scroller paused or not.
+        /// </summary>
+        bool IsPaused
+        {
+            get;
+            set;
+        }
     }
 }
